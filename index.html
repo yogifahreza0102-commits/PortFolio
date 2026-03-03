@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hii Rizka</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#2b2b2b;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Decorative floating circles */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    animation:float 8s ease-in-out infinite;
+}
+
+.circle:nth-child(1){
+    width:200px; height:200px;
+    top:10%; left:15%;
+}
+
+.circle:nth-child(2){
+    width:150px; height:150px;
+    bottom:15%; right:10%;
+    animation-delay:2s;
+}
+
+.circle:nth-child(3){
+    width:100px; height:100px;
+    top:60%; left:5%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
+
+.page{
+    position:absolute;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    transition:opacity 0.6s ease;
+    overflow-y:auto;   /* 🔥 ini penting */
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+.box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    padding:50px 40px;
+    border-radius:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    max-width:520px;
+    width:100%;
+    text-align:center;
+    color:#f5f5f5;
+    position:relative;
+    animation:fadeIn 0.8s ease;
+}
+
+.healing-box{
+    max-width:750px;
+    width:100%;
+    padding:50px 45px;
+}
+
+.heal-section{
+    margin-top:30px;
+}
+
+.heal-section textarea{
+    margin-bottom:20px;
+}
+
+.heal-section .option-container{
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:30px;
+}
+
+h1{
+    font-size:30px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+p{
+    font-size:15px;
+    line-height:1.8;
+    font-weight:300;
+    margin-bottom:20px;
+}
+
+/* Divider */
+.divider{
+    width:50px;
+    height:2px;
+    background:rgba(255,255,255,0.2);
+    margin:25px auto;
+    border-radius:2px;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:14px;
+    background:#444;
+    color:white;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#666;
+}
+
+.small-box{
+    position:absolute;
+    right:25px;
+    bottom:135px;
+    padding:5px 8px;
+    font-size:10px;
+    background:rgba(255,255,255,0.04);
+    border-radius:4px; /* hampir persegi */
+    max-width:150px;
+    text-align:right;
+    line-height:1.3;
+    letter-spacing:0.3px;
+}
+
+.option-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:50px;
+}
+
+.option{
+    padding:12px 26px;
+    background:#3a3a3a;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.option:hover{
+    background:#5a5a5a;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.heal-section{
+    margin-top:20px;
+}
+
+textarea:focus{
+    outline:none;
+}
+
+.punchable{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.punchable:active{
+    transform:scale(0.9);
+}
+
+.shake{
+    animation:shake 0.4s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    50%{transform:translateX(10px);}
+    75%{transform:translateX(-10px);}
+    100%{transform:translateX(0);}
+}
+
+.heal-section .option {
+    cursor:pointer;
+}
+
+#moodCenter{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:80%;
+    text-align:center;
+    pointer-events:none;
+}
+
+#moodMessage{
+    font-size:18px;
+    font-weight:400;
+    opacity:0;
+    transition:opacity 0.5s ease;
+}
+
+/* HEALING WHATSAPP BOX */
+.healing-wa-box{
+    margin-top:40px;
+    padding:14px 16px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.05);
+    text-align:center;
+    backdrop-filter:blur(8px);
+    max-width:320px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.healing-wa-box p{
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:10px;
+    opacity:0.85;
+}
+
+.healing-wa-btn{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:22px;
+    background:#25D366;
+    color:#111;
+    font-weight:500;
+    font-size:12px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.healing-wa-btn:hover{
+    background:#1ebe5d;
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Decorative elements -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+    <div class="box">
+        <h1>Hii Rizka</h1>
+        <div class="divider"></div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+    <div class="box">
+        <p>
+        Aku minta maaf yaa, responku salah banget emang
+        dan pasti bikin kamu makin bad mood.
+        </p>
+        <div class="divider"></div>
+        <button onclick="nextPage(3)">y</button>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+    <div class="box">
+        <p>
+        Pagi ini bener-bener ngeselin yaa buat kamu,
+        tapi satu pagi yang ngeselin nggak akan ngerusak mood
+        untuk satu hari penuh, kan? So, maafin yahh
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="small-box">
+            Aku juga makin bikin kamu kesel sihh hhehe
+        </div>
+
+        <div class="option-container">
+            <div class="option" onclick="nextPage(4)">Iyaa Aku Maafin Kok</div>
+            <div class="option" id="noBtn">g</div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page hidden" id="page4">
+    <div class="box">
+        <h1>Makasih Yaa Udah Maafin</h1>
+        <div class="divider"></div>
+        <p>Aku bakal lebih peka dan nggak bikin kamu bad mood lagi 🥺</p>
+        <button onclick="nextPage(6)">Masuk Healing Room</button>
+    </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page hidden" id="page5">
+    <div class="box">
+        <h1>YaHh Masih Nggak Maafin 😭</h1>
+        <div class="divider"></div>
+        <p>Yaudaa Gapapa Kalo Belum Dimaafin</p>
+        <button onclick="nextPage(6)">Masuk Healing Room</button>
+    </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page hidden" id="page6">
+  <div class="box healing-box">
+
+    <h1>Healing Room 🌿</h1>
+    <div class="divider"></div>
+
+    <div class="option-container" style="margin-bottom:40px;">
+        <div class="option" onclick="showSection('write')">Write & Release</div>
+        <div class="option" onclick="showSection('mood')">Mood Check</div>
+    </div>
+
+    <div id="write" class="heal-section hidden">
+        <textarea id="releaseText" placeholder="Tulis semua kekesalanmu di sini. Nggak ada yang ngejudge..."
+        style="width:100%;height:100px;border-radius:15px;padding:15px;background:#333;color:white;border:none;resize:none;"></textarea>
+
+        <button onclick="releaseText()">Buang Semuanya</button>
+        <p id="releaseMessage" style="margin-top:15px;"></p>
+    </div>
+
+    <div id="mood" class="heal-section hidden">
+        <div class="option-container">
+            <div class="option" onclick="checkMood('kesel')">Kesel</div>
+            <div class="option" onclick="checkMood('capek')">Capek</div>
+            <div class="option" onclick="checkMood('numb')">Numb</div>
+            <div class="option" onclick="checkMood('membaik')">Sedikit Membaik</div>
+        </div>
+    </div>
+
+    <div id="moodCenter">
+        <p id="moodMessage"></p>
+    </div>
+
+    <!-- WHATSAPP SUPPORT BOX (PINDAH KE SINI) -->
+    <div class="healing-wa-box">
+        <p>Hope u feel better after this</p>
+        <a class="healing-wa-btn"
+           href="https://wa.me/6282232923136?text=..."
+           target="_blank">
+           💬 Kirim Pesan ke Aku
+        </a>
+    </div>
+
+  </div>
+</div>
+<script>
+
+let noClickCount = 0;
+
+function nextPage(pageNumber){
+    document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+    document.getElementById("page"+pageNumber).classList.remove("hidden");
+}
+
+setTimeout(()=>{
+    nextPage(2);
+},3000);
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("click", function(){
+    noClickCount++;
+    if(noClickCount < 4){
+        const x = Math.random() * 250 - 125;
+        const y = Math.random() * 250 - 125;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }else{
+        nextPage(5);
+    }
+});
+
+function showSection(id){
+    document.querySelectorAll(".heal-section").forEach(sec=>sec.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+}
+
+// WRITE & RELEASE
+function releaseText(){
+    const text = document.getElementById("releaseText");
+    const msg = document.getElementById("releaseMessage");
+
+    text.style.transition = "0.6s";
+    text.style.opacity = "0";
+
+    setTimeout(()=>{
+        text.value = "";
+        text.style.opacity = "1";
+        msg.innerText = "Udah, semuanya udah ilang okei.";
+        
+        setTimeout(()=>{
+            msg.innerText = "";
+        },2500);
+
+    },600);
+}
+
+// MOOD CHECK
+const moodMessages = {
+    kesel:[
+        "Wajar banget kamu kesel. Pintu rumah malah jadi tempat jualan, terus kena kandang burung… itu ngeselin banget sih.",
+        "‘Untung masih deket’ bukan solusi 😭 kamu tetap yang harus bersihin dan jadi telat.",
+        "Udah buru-buru malah kena apes beruntun. Siapa juga nggak naik darah.",
+        "Combo tukang sayur, kandang burung, telat, sampai nunggu 30 menit? Itu mah ujian kesabaran.",
+        "Kamu nggak lebay kok. Itu emang pagi yang nyebelin banget."
+    ],
+    capek:[
+        "Capeknya pasti dobel, fisik kena kotoran, mental kena sikap orang.",
+        "Udah repot ganti baju, gosok dulu, terus masih harus ngejar waktu. Melelahkan banget.",
+        "Dari rumah sampai stasiun rasanya nggak ada yang lancar ya 😭 pantes capek.",
+        "Nunggu 30 menit setelah semua drama itu pasti makin draining.",
+        "Kamu udah berusaha tetap jalanin semuanya, itu keren sih."
+    ],
+    numb:[
+        "Kalau sekarang rasanya kosong aja, itu wajar. Tadi kebanyakan plot twist.",
+        "Kadang kalau terlalu kesel malah jadi mati rasa dulu. Itu normal kok.",
+        "Mungkin kamu lagi overload pagi ini.",
+        "Numb bukan berarti kamu nggak peduli, cuma lagi butuh jeda.",
+        "Pelan-pelan aja, nggak harus langsung baik-baik aja."
+    ],
+    membaik:[
+        "Kalau sekarang udah agak mendingan, itu progress banget.",
+        "Kamu berhasil lewatin pagi chaos itu, proud of you.",
+        "Sedikit membaik tetap berarti kok.",
+        "Masih ada sisa hari buat jadi lebih baik.",
+        "Dari semua drama tadi, kamu tetap lanjut jalan. Itu kuat banget."
+    ]
+};
+
+let moodTimeout;
+
+function checkMood(mood){
+    const arr = moodMessages[mood];
+    const random = arr[Math.floor(Math.random()*arr.length)];
+    const msg = document.getElementById("moodMessage");
+
+    // Reset kalau sebelumnya masih ada timer
+    clearTimeout(moodTimeout);
+
+    msg.style.opacity = "0";
+
+    setTimeout(()=>{
+        msg.innerText = random;
+        msg.style.opacity = "1";
+
+        // Hilang setelah 3 detik
+        moodTimeout = setTimeout(()=>{
+            msg.style.opacity = "0";
+        },3000);
+
+    },200);
+}
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
