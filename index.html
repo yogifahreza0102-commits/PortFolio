@@ -845,36 +845,38 @@ product categories, supporting better campaign planning and performance</li>
 
     <div class="cards">
 
-        <!-- UNIVERSITAS MERCU BUANA -->
-        <div class="card">
-            <span class="year">2021 - 2025</span>
+        <!-- LTP -->
+        <div class="card education-card" onclick="openProjectModal('ltp')">
+            <span class="year">2023</span>
 
             <div class="logo-container">
-                <img src="mercubuana-logo.png" alt="Universitas Mercu Buana">
+                <img src="ltp.png" alt="LTP">
                 <div>
-                    <h3>Bachelor Degree in Management</h3>
-                    <div class="institution">Universitas Mercu Buana</div>
+                    <h3>Leadership Training Program 2023</h3>
+                    <div class="institution">Project Leader</div>
                 </div>
+            </div>
+
+            <div class="more-info">
+                <i class="fas fa-circle-info"></i> Click for more info
             </div>
         </div>
 
-        <!-- GARUDA ACADEMY -->
-        <div class="card">
-            <span class="year">Apr 2025 - Dec 2025</span>
+        <!-- AFLES -->
+        <div class="card education-card" onclick="openProjectModal('afles')">
+            <span class="year">2024</span>
 
             <div class="logo-container">
-                <img src="garuda-academy-logo.png" alt="Garuda Academy">
+                <img src="afles-logo.png" alt="AFLES">
                 <div>
-                    <h3>Sports Management Program</h3>
-                    <div class="institution">Garuda Academy</div>
+                    <h3>AFLES</h3>
+                    <div class="institution">Logistics Division</div>
                 </div>
             </div>
 
-            <ul>
-                <li>Assisted customer engagement initiatives</li>
-                <li>Prepared business reports</li>
-                <li>Conducted internal performance tracking</li>
-            </ul>
+            <div class="more-info">
+                <i class="fas fa-circle-info"></i> Click for more info
+            </div>
         </div>
 
     </div>
@@ -934,6 +936,33 @@ product categories, supporting better campaign planning and performance</li>
                 <img src="gallery2.jpg">
                 <img src="gallery3.jpg">
                 <img src="gallery4.jpg">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PROJECT MODAL -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeProjectModal()">&times;</span>
+
+        <div id="projectModalBody"></div>
+
+        <div class="modal-gallery-wrapper">
+            <div class="modal-gallery-track">
+
+                <img src="project1.jpg">
+                <img src="project2.jpg">
+                <img src="project3.jpg">
+                <img src="project4.jpg">
+
+                <!-- duplicate for looping -->
+                <img src="project1.jpg">
+                <img src="project2.jpg">
+                <img src="project3.jpg">
+                <img src="project4.jpg">
 
             </div>
         </div>
@@ -1003,6 +1032,8 @@ function openModal(type){
     modal.style.display = "flex";
 }
 
+
+
 function closeModal(){
     document.getElementById("educationModal").style.display = "none";
 }
@@ -1014,6 +1045,66 @@ window.onclick = function(event){
         modal.style.display = "none";
     }
 }
+
+<script>
+function openProjectModal(type){
+    const modal = document.getElementById("projectModal");
+    const body = document.getElementById("projectModalBody");
+
+    if(type === "ltp"){
+        body.innerHTML = `
+            <div class="modal-header">
+                <img src="ltp.png" alt="LTP">
+                <div>
+                    <h2>Leadership Training Program 2023</h2>
+                    <p>Project Leader</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Led 20+ committee members in planning and executing leadership development program</li>
+                <li>Managed event budgeting, timeline, and cross-division coordination</li>
+                <li>Successfully delivered program attended by 100+ participants</li>
+                <li>Ensured smooth operational flow from preparation to evaluation stage</li>
+            </ul>
+        `;
+    }
+
+    if(type === "afles"){
+        body.innerHTML = `
+            <div class="modal-header">
+                <img src="afles-logo.png" alt="AFLES">
+                <div>
+                    <h2>AFLES 2024</h2>
+                    <p>Logistics Division</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Managed inventory and distribution of event equipment</li>
+                <li>Coordinated vendor communication and delivery schedule</li>
+                <li>Ensured venue readiness before and during event execution</li>
+                <li>Supported operational team to maintain efficient event flow</li>
+            </ul>
+        `;
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeProjectModal(){
+    document.getElementById("projectModal").style.display = "none";
+}
+
+// Close project modal when clicking outside
+window.addEventListener("click", function(event){
+    const modal = document.getElementById("projectModal");
+    if(event.target === modal){
+        modal.style.display = "none";
+    }
+});
+</script>
+
 </script>
 
 </body>
