@@ -116,6 +116,23 @@ nav ul li a:hover{
     animation:fadeIn 2s ease forwards;
 }
 
+.hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.hero-photo{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    animation:fadeIn 1.5s ease forwards;
+}
+
 /* EXPERIENCE VERTICAL TIMELINE */
 .timeline{
     position:relative;
@@ -404,6 +421,41 @@ footer{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
 }
+
+.about-container{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    max-width:900px;
+    margin:auto;
+}
+
+.about-photo{
+    width:220px;
+    height:220px;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 15px 40px rgba(37,99,235,0.15);
+}
+
+.about-text{
+    flex:1;
+    line-height:1.7;
+    color:#475569;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .about-photo{
+        width:180px;
+        height:180px;
+    }
+}
 </style>
 </head>
 
@@ -422,7 +474,9 @@ footer{
 </nav>
 
 <div class="hero">
-    <div>
+    <div class="hero-content">
+        <img src="your-photo.jpg" alt="Yogi Photo" class="hero-photo">
+
         <h1>Hi, I'm Yogi Fahreza Alfianto 👋</h1>
         <p>Digital Marketing | Data Analyst | Sports Enthusiast</p>
     </div>
