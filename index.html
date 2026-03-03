@@ -587,6 +587,28 @@ footer{
     visibility: hidden;
 }
 
+/* Hard Skills Logos – make them bigger */
+/* Align logos to left instead of center */
+.skills-logos.left-align {
+    justify-content: flex-start;
+}
+
+/* Style for image logos */
+.skill-logo-img {
+    width: 80px;       /* adjust as needed */
+    height: 80px;
+    border-radius: 15px;
+    margin: 10px 15px 10px 0;
+    object-fit: contain;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-logo-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 35px rgba(37,99,235,0.25);
+}
+
 </style>
 </head>
 
@@ -902,13 +924,69 @@ While continuously developing professional and managerial skills.
 
 <section id="skills">
     <div class="section-title"><h2>Skills</h2></div>
-    <div class="skills">
+
+    <!-- Professional / Soft skills -->
+    <div class="skills skills-text">
         <div class="skill">Leadership</div>
         <div class="skill">Digital Marketing</div>
         <div class="skill">Business Analysis</div>
         <div class="skill">Excel & Data</div>
         <div class="skill">Strategic Thinking</div>
     </div>
+
+    <!-- TECHNICAL TOOLS -->
+<h3 style="color:#1e3a8a; font-weight:600; margin-top:30px;">Technical Tools & Applications</h3>
+
+<!-- MICROSOFT OFFICE -->
+<div class="tool-group">
+    <h4>Microsoft Office</h4>
+    <div class="skills skills-logos left-align">
+        <img src="ms-office.png" alt="Microsoft Office" class="skill-logo-img">
+        <img src="ms-word.png" alt="MS Word" class="skill-logo-img">
+        <img src="ms-excel.png" alt="MS Excel" class="skill-logo-img">
+        <img src="ms-powerpoint.png" alt="MS PowerPoint" class="skill-logo-img">
+    </div>
+</div>
+
+<!-- GOOGLE WORKSPACE -->
+<div class="tool-group">
+    <h4>Google Workspace</h4>
+    <div class="skills skills-logos left-align">
+        <img src="google-docs.png" alt="Google Docs" class="skill-logo-img">
+        <img src="google-sheets.png" alt="Google Sheets" class="skill-logo-img">
+        <img src="google-slides.png" alt="Google Slides" class="skill-logo-img">
+        <img src="google-drive.png" alt="Google Drive" class="skill-logo-img">
+    </div>
+</div>
+
+<!-- PROJECT / COLLABORATION TOOLS -->
+<div class="tool-group">
+    <h4>Project & Collaboration</h4>
+    <div class="skills skills-logos left-align">
+        <img src="notion.png" alt="Notion" class="skill-logo-img">
+        <img src="github.png" alt="GitHub" class="skill-logo-img">
+    </div>
+</div>
+
+<!-- DESIGN / VIDEO -->
+<div class="tool-group">
+    <h4>Design & Video</h4>
+    <div class="skills skills-logos left-align">
+        <img src="canva.png" alt="Canva" class="skill-logo-img">
+        <img src="adobe-premiere.png" alt="Adobe Premiere" class="skill-logo-img">
+        <img src="figma.png" alt="Figma" class="skill-logo-img">
+    </div>
+</div>
+
+<!-- ANALYTICS / DATA -->
+<div class="tool-group">
+    <h4>Analytics & Data</h4>
+    <div class="skills skills-logos left-align">
+        <img src="data-analysis.png" alt="Data Analysis" class="skill-logo-img">
+        <img src="database.png" alt="Database / SQL" class="skill-logo-img">
+        <img src="google-analytics.png" alt="Google Analytics" class="skill-logo-img">
+    </div>
+</div>
 </section>
 
 <section id="contact">
@@ -1140,3 +1218,4 @@ window.addEventListener("click", function(event){
 
 </body>
 </html>
+
