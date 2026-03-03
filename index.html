@@ -580,6 +580,13 @@ footer{
     font-weight:500;
 }
 
+/* Hide "Click for more info" when card is expanded */
+.experience-card.active .more-info,
+.education-card.active .more-info{
+    opacity: 0;
+    visibility: hidden;
+}
+
 </style>
 </head>
 
@@ -706,10 +713,10 @@ While continuously developing professional and managerial skills.
             
             <div class="experience-content">
                 <ul>
-                    <li>Assisted in developing campaign decks for various marketing initiatives, including Chinese New Year campaigns and several other events</li>
-                    <li>Conducted competitor benchmarking and market analysis to support upcoming campaign strategies and positioning</li>
-                    <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and campaign objectives</li>
-                    <li>Supported the marketing team in reviewing and refining campaign materials for multiple products</li>
+                    <li>Assisted in developing campaign decks for various marketing initiatives, including Chinese New Year campaigns and several events such as Mandiri Influencer Program, Inacraft, and Mandiri Jogja Marathon.</li> 
+                    <li>Conducted competitor benchmarking and market analysis to support upcoming campaign strategies and positioning.</li> 
+                    <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and campaign objectives.</li> 
+                    <li>Supported the marketing team in reviewing and refining campaign materials for multiple products, including KPR Pegawai, Mandiri Auto, and other retail banking products.</li>
                 </ul>
             </div>
 
@@ -738,10 +745,11 @@ While continuously developing professional and managerial skills.
             
             <div class="experience-content">
                 <ul>
-                    <li>Coordinated with vendors and internal teams to ensure the provision and installation of furniture, branding, and equipment across stadium areas</li>
-                    <li>Supported matchday operations by overseeing overlay needs in key zones, including broadcast, media, and team facilities</li>
-                    <li>Conducted venue inspections to identify and fulfill logistical requirements in compliance with FIFA and AFC standards</li>
-                    <li>Assisted in ensuring smooth preparation and readiness of functional areas for training sessions and official matches</li>
+                    <li>Coordinated with vendors and internal teams to ensure the provision and installation of furniture, branding, and equipment across stadium areas.</li> 
+                    <li>Supported matchday operations by overseeing overlay needs in key zones, including broadcast, media, and team facilities.</li> 
+                    <li>Conducted venue inspections to identify and fulfill logistical requirements in compliance with FIFA and AFC standards.</li> 
+                    <li>Assisted in ensuring smooth preparation and readiness of functional areas for training sessions and official matches.</li> 
+                    <li>Collaborated with other functional teams (media, broadcast, accreditation, crowd management) to deliver an efficient matchday environment.</li>
                 </ul>
             </div>
 
@@ -770,9 +778,11 @@ While continuously developing professional and managerial skills.
             
             <div class="experience-content">
                 <ul>
-                    <li>Successfully calculated and compiled the calculation of Base Rent for 500+ Telkom Property assets across Indonesia, increasing efficiency and ensuring pricing consistency across regions</li>
-                    <li>Accelerated the Base Rent calculation process by 20% through streamlined data organization and improved analysis workflow</li>
-                    <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and alignment with current market trends</li>
+                    <li>Successfully calculated and compiled the calculation of Base Rent for 500+ Telkom Property assets across Indonesia, increasing efficiency and ensuring pricing consistency across regions.</li> 
+                    <li>Accelerated the Base Rent calculation process by 20% through streamlined data organization and improved analysis workflow.</li> 
+                    <li>Provided rental price recommendations for properties by analyzing over 2,000 market references, contributing to a more accurate and competitive pricing strategy.</li> 
+                    <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and alignment with current market trends.</li> 
+                    <li>Facilitated the team in determining effective promotional strategies based on revenue analysis across key product categories, supporting better campaign planning and performance.</li>
                 </ul>
             </div>
         </div>
@@ -800,10 +810,11 @@ While continuously developing professional and managerial skills.
             
             <div class="experience-content">
                 <ul>
-                    <li>Managed documents, meeting notes, and records using Microsoft Office and productivity tools like Notion</li> 
-                    <li>Provided administrative support for 6+ GDSC events, ensuring smooth operations and efficient communication</li> 
-                    <li>Collaborated with 300+ members and 17 core team members to align objectives and achieve organizational goals</li> 
-                    <li>Assisted in organizing and maintaining event materials, including registrations, participant lists, and feedback forms</li>  
+                    <li>Managed documents, meeting notes, and records using Microsoft Office and productivity tools like Notion.</li> 
+		            <li>Provided administrative support for 6+ GDSC events, ensuring smooth operations and efficient communication.</li> 
+		            <li>Collaborated with 300+ members and 17 core team members to align objectives and achieve organizational goals.</li> 
+		            <li>Assisted in organizing and maintaining event materials, including registrations, participant lists, and feedback forms.</li>  
+		            <li>Contributed to strategic planning sessions, helping shape club activities and initiatives.</li>  
                 </ul>
             </div>
         </div>
@@ -831,10 +842,11 @@ While continuously developing professional and managerial skills.
 
             <div class="experience-content">
                 <ul>
-                    <li>Organized and implemented division activities, including 9 weekly classes, 1 mini competition, and sharing sessions</li> 
-                    <li>Developed and maintained a curriculum tailored to improving vocabulary and English proficiency among members</li> 
-                    <li>Evaluated the progress of members through assessments and feedback sessions, helping them achieve their language goals</li> 
-                    <li>Managed and coordinated division resources, including study materials and event logistics</li> 
+                    <li>Organized and implemented division activities, including 9 weekly classes, 1 mini competition, and sharing sessions.</li> 
+                    <li>Developed and maintained a curriculum tailored to improving vocabulary and English proficiency among members.</li> 
+                    <li>Evaluated the progress of members through assessments and feedback sessions, helping them achieve their language goals.</li> 
+                    <li>Managed and coordinated division resources, including study materials and event logistics.</li>
+                    <li>Assisted the president and vice-president in conducting 4 annual events of MBEC, contributing to the club's success and member engagement.</li> 
                 </ul>
             </div>
         </div>
@@ -982,12 +994,25 @@ document.querySelectorAll(".experience-card").forEach(card => {
 
         // Tutup yang lain dulu (biar rapi)
         document.querySelectorAll(".experience-card").forEach(other => {
-            if(other !== card){
+            if (other !== card) {
                 other.classList.remove("active");
+                // Reset max-height
+                const content = other.querySelector(".experience-content");
+                if(content){
+                    content.style.maxHeight = null;
+                }
             }
         });
 
         card.classList.toggle("active");
+
+        // Set dynamic height
+        const content = card.querySelector(".experience-content");
+        if(card.classList.contains("active") && content){
+            content.style.maxHeight = content.scrollHeight + "px";
+        } else if(content){
+            content.style.maxHeight = null;
+        }
     });
 });
 </script>
@@ -1115,5 +1140,3 @@ window.addEventListener("click", function(event){
 
 </body>
 </html>
-
-
