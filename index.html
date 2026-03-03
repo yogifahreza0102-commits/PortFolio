@@ -254,15 +254,6 @@ section{
     box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* ABOUT */
-.about p{
-    max-width:750px;
-    margin:auto;
-    text-align:center;
-    line-height:1.7;
-    color:#475569;
-}
-
 /* CARDS UNIVERSAL */
 .cards{
     display:grid;
@@ -366,10 +357,6 @@ section{
 }
 
 /* CONTACT */
-.contact{
-    text-align:center;
-}
-
 .contact-icons{
     display:flex;
     justify-content:center;
@@ -456,18 +443,28 @@ footer{
         height:180px;
     }
 }
+
+/* Paksa isi experience tetap rata kiri */
+.experience-card,
+.experience-card ul,
+.experience-card li,
+.experience-card .meta,
+.experience-card h3 {
+    text-align: left !important;
+}
+
 </style>
 </head>
 
 <body>
 
 <nav>
-    <h2>Yogi.</h2>
+    <h2>2026 Portfolio</h2>
     <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#porject">Project</a></li>
+        <li><a href="#project">Project</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -475,9 +472,8 @@ footer{
 
 <div class="hero">
     <div class="hero-content">
-        <img src="your-photo.jpg" alt="Yogi Photo" class="hero-photo">
 
-        <h1>Hi, I'm Yogi Fahreza Alfianto 👋</h1>
+        <h1>Hi, I'm Yogi Fahreza Alfianto</h1>
         <p>Digital Marketing | Data Analyst | Sports Enthusiast</p>
     </div>
 
@@ -489,14 +485,19 @@ footer{
 
 <section id="about">
     <div class="section-title"><h2>About Me</h2></div>
-    <div class="about">
-        <p>
+
+    <div class="about-container">
+        <img src="your-photo.jpg" alt="Yogi Photo" class="about-photo">
+
+        <div class="about-text">
+            <p>
 A fresh graduate with a Bachelor’s degree in Management from Universitas Mercu Buana, I have a keen interest in pursuing a career in digital marketing. 
 Gained practical exposure to marketing campaigns, data analysis, and crossfunctional coordination through an internship at PT Bank Mandiri (Persero) Tbk. 
 Offering valuable insights into corporate operations and collaborative work environments. 
 Highly adaptable, eager to learn, and capable of performing in fastpaced corporate settings 
 While continuously developing professional and managerial skills. 
-        </p>
+            </p>
+        </div>
     </div>
 </section>
 
@@ -509,7 +510,7 @@ While continuously developing professional and managerial skills.
 
         <!-- UNIVERSITAS MERCU BUANA -->
         <div class="card">
-            <span class="year">2021 - 2025</span>
+            <span class="year">Aug 2021 - Aug 2025</span>
 
             <div class="logo-container">
                 <img src="mercubuana-logo.png" alt="Universitas Mercu Buana">
@@ -518,6 +519,16 @@ While continuously developing professional and managerial skills.
                     <div class="institution">Universitas Mercu Buana</div>
                 </div>
             </div>
+
+            <ul>
+            Concentrating on Marketing, GPA: 3.98 / 4.00
+                <li>Awardee of the 4-Year Full Scholarship in International Class Program</li>
+                <li>Relevant Coursework: International Marketing, E-Marketing, Digital Marketing Communication, Marketing 
+Management, Service Management, Change Management, Financial Management, Business Budgeting, Statistics, 
+International Business, Product and Brand</li>
+                <li>Attend various campus events and more, such as competitions, webinars, and skills training workshops with a total of 
+more than 20 events</li>
+            </ul>
         </div>
 
         <!-- GARUDA ACADEMY -->
@@ -533,9 +544,12 @@ While continuously developing professional and managerial skills.
             </div>
 
             <ul>
-                <li>Assisted customer engagement initiatives</li>
-                <li>Prepared business reports</li>
-                <li>Conducted internal performance tracking</li>
+                Became Top 30 and completed Core 1.0, Core 2.0, and Core 3.0 of the Garuda Academy program, a structured development initiative focusing on football event operations and management
+                <li>Core 1.0: Covered the structure of world football, safeguarding, commercialization, event management, and brand 
+development</li>
+                <li>Core 2.0: Focused on broadcast and media operations, digital promotion, sponsorship activation, and crowd 
+management</li>
+                <li>Explored income generation, professional club licensing, and content creation</li>
             </ul>
         </div>
 
@@ -567,9 +581,14 @@ While continuously developing professional and managerial skills.
 
             <div class="experience-content">
                 <ul>
-                    <li>Supported campaign execution for national events</li>
-                    <li>Coordinated cross-functional teams</li>
-                    <li>Analyzed campaign performance metrics</li>
+                    <li>Assisted in developing campaign decks for various marketing initiatives, including Chinese New Year 
+campaigns and several events such as Mandiri Influencer Program, Inacraft, and Mandiri Jogja Marathon</li>
+                    <li>Conducted competitor benchmarking and market analysis to support upcoming campaign strategies and 
+positioning</li>
+                    <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and 
+campaign objectives</li>
+                    <li>Supported the marketing team in reviewing and refining campaign materials for multiple products, 
+including KPR Pegawai, Mandiri Auto, and other retail banking products</li>
                 </ul>
             </div>
 
@@ -594,9 +613,15 @@ While continuously developing professional and managerial skills.
 
             <div class="experience-content">
                 <ul>
-                    <li>Managed venue overlay setup and dismantling</li>
-                    <li>Coordinated with technical & operations teams</li>
-                    <li>Ensured match-day infrastructure readiness</li>
+                    <li>Coordinated with vendors and internal teams to ensure the provision and installation of furniture, branding, and 
+equipment across stadium areas</li>
+                    <li>Supported matchday operations by overseeing overlay needs in key zones, including broadcast, media, and team 
+facilities</li>
+                    <li>Conducted venue inspections to identify and fulfill logistical requirements in compliance with FIFA and AFC 
+standards</li>
+                    <li>Assisted in ensuring smooth preparation and readiness of functional areas for training sessions and official matches</li>
+                    <li>Collaborated with other functional teams (media, broadcast, accreditation, crowd management) to deliver an 
+efficient matchday environment</li>
                 </ul>
             </div>
 
@@ -621,9 +646,16 @@ While continuously developing professional and managerial skills.
 
             <div class="experience-content">
                 <ul>
-                    <li>Assisted marketing campaign execution</li>
-                    <li>Handled customer inquiries & reporting</li>
-                    <li>Supported performance tracking & analysis</li>
+                    <li>Successfully calculated and compiled the calculation of Base Rent for 500+ Telkom Property assets across Indonesia, 
+increasing efficiency and ensuring pricing consistency across regions</li>
+                    <li>Accelerated the Base Rent calculation process by 20% through streamlined data organization and improved analysis 
+workflow</li>
+                    <li>Provided rental price recommendations for properties by analyzing over 2,000 market references, contributing to a 
+more accurate and competitive pricing strategy</li>
+                    <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and 
+alignment with current market trends</li>
+                    <li>Facilitated the team in determining effective promotional strategies based on revenue analysis across key 
+product categories, supporting better campaign planning and performance</li>
                 </ul>
             </div>
         </div>
@@ -640,7 +672,7 @@ While continuously developing professional and managerial skills.
                     <img src="gdsc-logo.png" alt="GDSC">
                     <div>
                         <h3>Secretary</h3>
-                        <div class="meta">GDSC</div>
+                        <div class="meta">Google Developer Student Club (GDSC)</div>
                     </div>
                 </div>
             </div>
@@ -666,7 +698,7 @@ While continuously developing professional and managerial skills.
                     <img src="mbec-logo.png" alt="MBEC">
                     <div>
                         <h3>Division Coordinator</h3>
-                        <div class="meta">MBEC</div>
+                        <div class="meta">Mercu Buana English Club (MBEC)</div>
                     </div>
                 </div>
             </div>
