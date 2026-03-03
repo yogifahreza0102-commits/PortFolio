@@ -453,6 +453,133 @@ footer{
     text-align: left !important;
 }
 
+/* EDUCATION MODAL */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(15,23,42,0.6);
+    backdrop-filter:blur(8px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+    padding:40px;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:1100px;
+    height:85vh;
+    border-radius:25px;
+    padding:40px;
+    overflow-y:auto;
+    position:relative;
+    animation:fadeIn 0.4s ease;
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:28px;
+    cursor:pointer;
+    color:#1e3a8a;
+}
+
+/* Modal Gallery */
+.modal-gallery-wrapper{
+    overflow:hidden;
+    margin-top:30px;
+}
+
+.modal-gallery-track{
+    display:flex;
+    gap:25px;
+    width:max-content;
+    animation:modalScroll 25s linear infinite;
+}
+
+.modal-gallery-track img{
+    width:250px;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(37,99,235,0.15);
+}
+
+@keyframes modalScroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+}
+
+.education-card{
+    cursor:pointer;
+}
+
+/* ===== CLICK FOR MORE INFO ===== */
+
+.education-card,
+.experience-card{
+    position:relative;
+}
+
+.more-info{
+    position:absolute;
+    bottom:18px;
+    right:22px;
+    font-size:0.75rem;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    opacity:0.6;
+    transition:all 0.3s ease;
+    pointer-events:none;
+}
+
+.card:hover .more-info{
+    opacity:1;
+    transform:translateY(-3px);
+}
+
+.more-info i{
+    font-size:0.8rem;
+}
+
+/* ===== MODAL HEADER WITH LOGO ===== */
+
+.modal-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.modal-header img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    border-radius:12px;
+    background:#f8fafc;
+    padding:10px;
+    box-shadow:0 8px 20px rgba(37,99,235,0.15);
+}
+
+.modal-header h2{
+    margin:0;
+    color:#1e3a8a;
+}
+
+.modal-header p{
+    margin:4px 0 0 0;
+    color:#2563eb;
+    font-weight:500;
+}
+
 </style>
 </head>
 
@@ -474,7 +601,7 @@ footer{
     <div class="hero-content">
 
         <h1>Hi, I'm Yogi Fahreza Alfianto</h1>
-        <p>Digital Marketing | Data Analyst | Sports Enthusiast</p>
+        <p>Digital Marketing | Data Analyst | Sports Management Enthusiast</p>
     </div>
 
     <svg class="wave" viewBox="0 0 1440 320">
@@ -509,47 +636,43 @@ While continuously developing professional and managerial skills.
     <div class="cards">
 
         <!-- UNIVERSITAS MERCU BUANA -->
-        <div class="card">
+        <div class="card education-card" onclick="openModal('umb')">
             <span class="year">Aug 2021 - Aug 2025</span>
 
             <div class="logo-container">
                 <img src="mercubuana-logo.png" alt="Universitas Mercu Buana">
                 <div>
-                    <h3>Bachelor Degree in Management</h3>
-                    <div class="institution">Universitas Mercu Buana</div>
+                    <h3>Universitas Mercu Buana</h3>
+                    <div class="institution">Bachelor Degree in Management</div>
                 </div>
             </div>
 
             <ul>
             Concentrating on Marketing, GPA: 3.98 / 4.00
-                <li>Awardee of the 4-Year Full Scholarship in International Class Program</li>
-                <li>Relevant Coursework: International Marketing, E-Marketing, Digital Marketing Communication, Marketing 
-Management, Service Management, Change Management, Financial Management, Business Budgeting, Statistics, 
-International Business, Product and Brand</li>
-                <li>Attend various campus events and more, such as competitions, webinars, and skills training workshops with a total of 
-more than 20 events</li>
             </ul>
+            <div class="more-info">
+    <i class="fas fa-circle-info"></i> Click for more info
+</div>
         </div>
 
         <!-- GARUDA ACADEMY -->
-        <div class="card">
+        <div class="card education-card" onclick="openModal('garuda')">
             <span class="year">Apr 2025 - Dec 2025</span>
 
             <div class="logo-container">
                 <img src="garuda-academy-logo.png" alt="Garuda Academy">
                 <div>
-                    <h3>Sports Management Program</h3>
-                    <div class="institution">Garuda Academy</div>
+                    <h3>Garuda Academy</h3>
+                    <div class="institution">Sports Management Program</div>
                 </div>
             </div>
 
             <ul>
-                Became Top 30 and completed Core 1.0, Core 2.0, and Core 3.0 of the Garuda Academy program, a structured development initiative focusing on football event operations and management
-                <li>Core 1.0: Covered the structure of world football, safeguarding, commercialization, event management, and brand development</li>
-                <li>Core 2.0: Focused on broadcast and media operations, digital promotion, sponsorship activation, and crowd management</li>
-                <li>Explored income generation, professional club licensing, and content creation</li>
+                Garuda Academy is the first Sports Management Education Program in Indonesia by PSSI, fully endorsed by FIFA and AFC. The program is designed to empower professionals and sports enthusiasts with practical, real-world knowledge in Sports Management.
             </ul>
-        </div>
+            <div class="more-info">
+    <i class="fas fa-circle-info"></i> Click for more info
+</div>
 
     </div>
 </section>
@@ -579,10 +702,14 @@ more than 20 events</li>
 
             <div class="experience-content">
                 <ul>
-                    <li>Assisted in developing campaign decks for various marketing initiatives, including Chinese New Year campaigns and several events such as Mandiri Influencer Program, Inacraft, and Mandiri Jogja Marathon</li>
-                    <li>Conducted competitor benchmarking and market analysis to support upcoming campaign strategies and positioning</li>
-                    <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and campaign objectives</li>
-                    <li>Supported the marketing team in reviewing and refining campaign materials for multiple products, including KPR Pegawai, Mandiri Auto, and other retail banking products</li>
+                    <li>Assisted in developing campaign decks for various marketing initiatives, including Chinese New Year 
+campaigns and several events such as Mandiri Influencer Program, Inacraft, and Mandiri Jogja Marathon</li>
+                    <li>Conducted competitor benchmarking and market analysis to support upcoming campaign strategies and 
+positioning</li>
+                    <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and 
+campaign objectives</li>
+                    <li>Supported the marketing team in reviewing and refining campaign materials for multiple products, 
+including KPR Pegawai, Mandiri Auto, and other retail banking products</li>
                 </ul>
             </div>
 
@@ -607,11 +734,15 @@ more than 20 events</li>
 
             <div class="experience-content">
                 <ul>
-                    <li>Coordinated with vendors and internal teams to ensure the provision and installation of furniture, branding, and equipment across stadium areas</li>
-                    <li>Supported matchday operations by overseeing overlay needs in key zones, including broadcast, media, and team facilities</li>
-                    <li>Conducted venue inspections to identify and fulfill logistical requirements in compliance with FIFA and AFC standards</li>
+                    <li>Coordinated with vendors and internal teams to ensure the provision and installation of furniture, branding, and 
+equipment across stadium areas</li>
+                    <li>Supported matchday operations by overseeing overlay needs in key zones, including broadcast, media, and team 
+facilities</li>
+                    <li>Conducted venue inspections to identify and fulfill logistical requirements in compliance with FIFA and AFC 
+standards</li>
                     <li>Assisted in ensuring smooth preparation and readiness of functional areas for training sessions and official matches</li>
-                    <li>Collaborated with other functional teams (media, broadcast, accreditation, crowd management) to deliver an efficient matchday environment</li>
+                    <li>Collaborated with other functional teams (media, broadcast, accreditation, crowd management) to deliver an 
+efficient matchday environment</li>
                 </ul>
             </div>
 
@@ -636,11 +767,16 @@ more than 20 events</li>
 
             <div class="experience-content">
                 <ul>
-                    <li>Successfully calculated and compiled the calculation of Base Rent for 500+ Telkom Property assets across Indonesia, increasing efficiency and ensuring pricing consistency across regions</li>
-                    <li>Accelerated the Base Rent calculation process by 20% through streamlined data organization and improved analysis workflow</li>
-                    <li>Provided rental price recommendations for properties by analyzing over 2,000 market references, contributing to a more accurate and competitive pricing strategy</li>
-                    <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and alignment with current market trends</li>
-                    <li>Facilitated the team in determining effective promotional strategies based on revenue analysis across key product categories, supporting better campaign planning and performance</li>
+                    <li>Successfully calculated and compiled the calculation of Base Rent for 500+ Telkom Property assets across Indonesia, 
+increasing efficiency and ensuring pricing consistency across regions</li>
+                    <li>Accelerated the Base Rent calculation process by 20% through streamlined data organization and improved analysis 
+workflow</li>
+                    <li>Provided rental price recommendations for properties by analyzing over 2,000 market references, contributing to a 
+more accurate and competitive pricing strategy</li>
+                    <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and 
+alignment with current market trends</li>
+                    <li>Facilitated the team in determining effective promotional strategies based on revenue analysis across key 
+product categories, supporting better campaign planning and performance</li>
                 </ul>
             </div>
         </div>
@@ -664,11 +800,9 @@ more than 20 events</li>
 
             <div class="experience-content">
                 <ul>
-                    <li>Managed documents, meeting notes, and records using Microsoft Office and productivity tools like Notion</li>
-                    <li>Provided administrative support for 6+ GDSC events, ensuring smooth operations and efficient communication</li>
-                    <li>Collaborated with 300+ members and 17 core team members to align objectives and achieve organizational goals</li>
-                    <li>Assisted in organizing and maintaining event materials, including registrations, participant lists, and feedback forms</li>
-                    <li>Contributed to strategic planning sessions, helping shape club activities and initiatives</li>
+                    <li>Managed venue overlay setup and dismantling</li>
+                    <li>Coordinated with technical & operations teams</li>
+                    <li>Ensured match-day infrastructure readiness</li>
                 </ul>
             </div>
         </div>
@@ -692,11 +826,9 @@ more than 20 events</li>
 
             <div class="experience-content">
                 <ul>
-                    <li>Organized and implemented division activities, including 9 weekly classes, 1 mini competition, and sharing sessions</li>
-                    <li>Developed and maintained a curriculum tailored to improving vocabulary and English proficiency among members</li>
-                    <li>Evaluated the progress of members through assessments and feedback sessions, helping them achieve their language goals</li>
-                    <li>Managed and coordinated division resources, including study materials and event logistics</li>
-                    <li>Assisted the president and vice-president in conducting 4 annual events of MBEC, contributing to the club's success and member engagement</li>
+                    <li>Assisted marketing campaign execution</li>
+                    <li>Handled customer inquiries & reporting</li>
+                    <li>Supported performance tracking & analysis</li>
                 </ul>
             </div>
         </div>
@@ -781,6 +913,34 @@ more than 20 events</li>
     © 2026 Yogi Fahreza Alfianto. All rights reserved.
 </footer>
 
+<!-- EDUCATION MODAL -->
+<div id="educationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+
+        <div id="modalBody"></div>
+
+        <!-- AUTO SCROLL GALLERY -->
+        <div class="modal-gallery-wrapper">
+            <div class="modal-gallery-track">
+
+                <img src="gallery1.jpg">
+                <img src="gallery2.jpg">
+                <img src="gallery3.jpg">
+                <img src="gallery4.jpg">
+
+                <!-- duplicate for looping -->
+                <img src="gallery1.jpg">
+                <img src="gallery2.jpg">
+                <img src="gallery3.jpg">
+                <img src="gallery4.jpg">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <script>
 document.querySelectorAll(".experience-card").forEach(card => {
     card.addEventListener("click", () => {
@@ -797,6 +957,64 @@ document.querySelectorAll(".experience-card").forEach(card => {
 });
 </script>
 
+<script>
+function openModal(type){
+    const modal = document.getElementById("educationModal");
+    const body = document.getElementById("modalBody");
+
+    if(type === "umb"){
+        body.innerHTML = `
+            <div class="modal-header">
+                <img src="mercubuana-logo.png" alt="Universitas Mercu Buana">
+                <div>
+                    <h2>Universitas Mercu Buana</h2>
+                    <p>Bachelor Degree in Management</p>
+                </div>
+            </div>
+
+            <ul>
+                Concentrating on Marketing, GPA: 3.98 / 4.00
+                <li>Awardee of the 4-Year Full Scholarship in International Class Program</li>
+                <li>Relevant Coursework: International Marketing, E-Marketing, Digital Marketing Communication, Marketing Management, Service Management, Change Management, Financial Management, Business Budgeting, Statistics, International Business, Product and Brand</li>
+                <li>Attended 20+ campus events including competitions, webinars, and workshops</li>
+            </ul>
+        `;
+    }
+
+    if(type === "garuda"){
+        body.innerHTML = `
+            <div class="modal-header">
+                <img src="garuda-academy-logo.png" alt="Garuda Academy">
+                <div>
+                    <h2>Garuda Academy</h2>
+                    <p>Sports Management Program</p>
+                </div>
+            </div>
+
+            <ul>
+                Became Top 30 and completed Core 1.0, Core 2.0, and Core 3.0
+                <li>Core 1.0: World football structure, safeguarding, commercialization, event management, brand development</li>
+                <li>Core 2.0: Broadcast & media operations, digital promotion, sponsorship activation, crowd management</li>
+                <li>Core 3.0: Income generation, professional club licensing, content creation</li>
+            </ul>
+        `;
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("educationModal").style.display = "none";
+}
+
+// Close when clicking outside
+window.onclick = function(event){
+    const modal = document.getElementById("educationModal");
+    if(event.target === modal){
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </body>
 </html>
-
