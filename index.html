@@ -609,6 +609,39 @@ footer{
     box-shadow: 0 12px 35px rgba(37,99,235,0.25);
 }
 
+/* EXPERIENCE PHOTO GALLERY */
+.experience-gallery{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.experience-gallery img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(37,99,235,0.12);
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-gallery img:hover{
+    transform:scale(1.05);
+    box-shadow:0 12px 30px rgba(37,99,235,0.25);
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .experience-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .experience-gallery img{
+        height:180px;
+    }
+}
+
 </style>
 </head>
 
@@ -740,6 +773,12 @@ While continuously developing professional and managerial skills.
                     <li>Monitored and evaluated social media content performance to ensure alignment with brand guidelines and campaign objectives.</li> 
                     <li>Supported the marketing team in reviewing and refining campaign materials for multiple products, including KPR Pegawai, Mandiri Auto, and other retail banking products.</li>
                 </ul>
+		<div class="experience-gallery">
+    		<img src="mandiri1.jpg" alt="Mandiri Experience 1">
+    		<img src="mandiri2.jpg" alt="Mandiri Experience 2">
+    		<img src="mandiri3.jpg" alt="Mandiri Experience 3">
+    		<img src="mandiri4.jpg" alt="Mandiri Experience 4">
+		</div>
             </div>
 
         </div>
@@ -773,6 +812,12 @@ While continuously developing professional and managerial skills.
                     <li>Assisted in ensuring smooth preparation and readiness of functional areas for training sessions and official matches.</li> 
                     <li>Collaborated with other functional teams (media, broadcast, accreditation, crowd management) to deliver an efficient matchday environment.</li>
                 </ul>
+		<div class="experience-gallery">
+    		<img src="pssi1.jpg" alt="PSSI Experience 1">
+    		<img src="pssi2.jpg" alt="PSSI Experience 2">
+    		<img src="pssi3.jpg" alt="PSSI Experience 3">
+    		<img src="pssi4.jpg" alt="PSSI Experience 4">
+		</div>
             </div>
 
         </div>
@@ -806,6 +851,12 @@ While continuously developing professional and managerial skills.
                     <li>Supported the team in making strategic rental decisions, resulting in a 10–15% improvement in pricing accuracy and alignment with current market trends.</li> 
                     <li>Facilitated the team in determining effective promotional strategies based on revenue analysis across key product categories, supporting better campaign planning and performance.</li>
                 </ul>
+		<div class="experience-gallery">
+    		<img src="telkom1.jpg" alt="Telkom Property Experience 1">
+    		<img src="telkom2.jpg" alt="Telkom Property Experience 2">
+    		<img src="telkom3.jpg" alt="Telkom Property Experience 3">
+    		<img src="telkom4.jpg" alt="Telkom Property Experience 4">
+		</div>
             </div>
         </div>
     </div>
@@ -838,6 +889,12 @@ While continuously developing professional and managerial skills.
 		            <li>Assisted in organizing and maintaining event materials, including registrations, participant lists, and feedback forms.</li>  
 		            <li>Contributed to strategic planning sessions, helping shape club activities and initiatives.</li>  
                 </ul>
+		<div class="experience-gallery">
+    		<img src="gdsc1.jpg" alt="GDSC Experience 1">
+    		<img src="gdsc2.jpg" alt="GDSC Experience 2">
+    		<img src="gdsc3.jpg" alt="GDSC Experience 3">
+    		<img src="gdsc4.jpg" alt="GDSC Experience 4">
+		</div>
             </div>
         </div>
     </div>
@@ -870,6 +927,12 @@ While continuously developing professional and managerial skills.
                     <li>Managed and coordinated division resources, including study materials and event logistics.</li>
                     <li>Assisted the president and vice-president in conducting 4 annual events of MBEC, contributing to the club's success and member engagement.</li> 
                 </ul>
+		<div class="experience-gallery">
+    		<img src="mbec1.jpg" alt="MBEC Experience 1">
+    		<img src="mbec2.jpg" alt="MBEC Experience 2">
+    		<img src="mbec3.jpg" alt="MBEC Experience 3">
+    		<img src="mbec4.jpg" alt="MBEC Experience 4">
+		</div>
             </div>
         </div>
     </div>
@@ -1249,5 +1312,3 @@ window.addEventListener("click", function(event){
 
 </body>
 </html>
-
-
