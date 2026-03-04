@@ -1020,7 +1020,7 @@ While continuously developing professional and managerial skills.
 
         <!-- AUTO SCROLL GALLERY -->
         <div class="modal-gallery-wrapper">
-            <div class="modal-gallery-track">
+    		<div class="modal-gallery-track" id="educationGalleryTrack">
 
                 <img src="gallery1.jpg">
                 <img src="gallery2.jpg">
@@ -1099,6 +1099,9 @@ document.querySelectorAll(".experience-card").forEach(card => {
 function openModal(type){
     const modal = document.getElementById("educationModal");
     const body = document.getElementById("modalBody");
+    const galleryTrack = document.getElementById("educationGalleryTrack");
+
+    let images = [];
 
     if(type === "umb"){
         body.innerHTML = `
@@ -1117,6 +1120,13 @@ function openModal(type){
                 <li>Attended 20+ campus events including competitions, webinars, and workshops</li>
             </ul>
         `;
+
+        images = [
+            "umb1.jpg",
+            "umb2.jpg",
+            "umb3.jpg",
+            "umb4.jpg"
+        ];
     }
 
     if(type === "garuda"){
@@ -1136,12 +1146,33 @@ function openModal(type){
                 <li>Core 3.0: Income generation, professional club licensing, content creation</li>
             </ul>
         `;
+
+        images = [
+            "garuda1.jpg",
+            "garuda2.jpg",
+            "garuda3.jpg",
+            "garuda4.jpg",
+            "garuda5.jpg",
+            "garuda6.jpg",
+            "garuda7.jpg",
+            "garuda8.jpg"
+        ];
     }
+
+    // Inject images dynamically
+    galleryTrack.innerHTML = "";
+
+    images.forEach(img => {
+        galleryTrack.innerHTML += `<img src="${img}" alt="Gallery Image">`;
+    });
+
+    // Duplicate for infinite scroll
+    images.forEach(img => {
+        galleryTrack.innerHTML += `<img src="${img}" alt="Gallery Image">`;
+    });
 
     modal.style.display = "flex";
 }
-
-
 
 function closeModal(){
     document.getElementById("educationModal").style.display = "none";
