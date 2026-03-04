@@ -14,7 +14,6 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins', sans-serif;
-    scroll-behavior:smooth;
 }
 
 body{
@@ -642,6 +641,46 @@ footer{
     }
 }
 
+/* Achievement List Style */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: auto;
+}
+
+.achievement-list li {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.achievement-list li:hover {
+    padding-left: 10px;
+    color: #0077ff;
+}
+
+.achievement-list .year {
+    min-width: 110px;
+    font-weight: 600;
+    color: #666;
+}
+
+.cert-inline{
+    margin:20px 0 30px 130px;
+    animation:fadeIn 0.4s ease;
+}
+
+.cert-inline img{
+    width:100%;
+    max-width:650px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(37,99,235,0.15);
+}
+
 </style>
 </head>
 
@@ -654,6 +693,7 @@ footer{
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#project">Project</a></li>
+        <li><a href="#achievement">Achievement & Certification</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -949,40 +989,65 @@ While continuously developing professional and managerial skills.
     <div class="cards">
 
         <!-- LTP -->
-        <div class="card education-card" onclick="openProjectModal('ltp')">
-            <span class="year">2023</span>
+        <div class="card project-card" onclick="openProjectModal('ltp')">
+    <span class="year">2023</span>
 
-            <div class="logo-container">
-                <img src="ltp.png" alt="LTP">
-                <div>
-                    <h3>Leadership Training Program 2023</h3>
-                    <div class="institution">Project Leader</div>
-                </div>
-            </div>
-
-            <div class="more-info">
-                <i class="fas fa-circle-info"></i> Click for more info
-            </div>
+    <div class="logo-container">
+        <img src="ltp.png" alt="LTP">
+        <div>
+            <h3>Leadership Training Program 2023</h3>
+            <div class="institution">Project Leader</div>
         </div>
+    </div>
+
+    <div class="more-info">
+        <i class="fas fa-circle-info"></i> Click for more info
+    </div>
+</div>
 
         <!-- AFLES -->
-        <div class="card education-card" onclick="openProjectModal('afles')">
-            <span class="year">2024</span>
+        <div class="card project-card" onclick="openProjectModal('afles')">
+    <span class="year">2024</span>
 
-            <div class="logo-container">
-                <img src="afles-logo.png" alt="AFLES">
-                <div>
-                    <h3>AFLES</h3>
-                    <div class="institution">Logistics Division</div>
-                </div>
-            </div>
-
-            <div class="more-info">
-                <i class="fas fa-circle-info"></i> Click for more info
-            </div>
+    <div class="logo-container">
+        <img src="afles-logo.png" alt="AFLES">
+        <div>
+            <h3>AFLES 2024</h3>
+            <div class="institution">Logistics Division</div>
         </div>
+    </div>
+
+    <div class="more-info">
+        <i class="fas fa-circle-info"></i> Click for more info
+    </div>
+</div>
 
     </div>
+</section>
+
+<section id="achievement">
+    <div class="section-title">
+        <h2>Achievements & Certifications</h2>
+    </div>
+
+    <ul class="achievement-list">
+        <li onclick="showCert('scholarship', this)">
+            <span class="year">2021 - 2025</span>
+            <div>
+                <strong>Full 4-Year Scholarship Awardee</strong><br>
+                <small>International Class Program</small>
+            </div>
+        </li>
+
+        <li onclick="showCert('digital', this)">
+            <span class="year">2024</span>
+            <div>
+                <strong>Digital Marketing Certification</strong><br>
+                <small>Professional Certification</small>
+            </div>
+        </li>
+    </ul>
+
 </section>
 
 <section id="skills">
@@ -1248,11 +1313,15 @@ window.onclick = function(event){
         modal.style.display = "none";
     }
 }
+</script>
 
 <script>
 function openProjectModal(type){
     const modal = document.getElementById("projectModal");
     const body = document.getElementById("projectModalBody");
+    const galleryTrack = modal.querySelector(".modal-gallery-track");
+
+    let images = [];
 
     if(type === "ltp"){
         body.innerHTML = `
@@ -1271,6 +1340,8 @@ function openProjectModal(type){
                 <li>Ensured smooth operational flow from preparation to evaluation stage</li>
             </ul>
         `;
+
+        images = ["ltp1.jpg","ltp2.jpg","ltp3.jpg","ltp4.jpg"];
     }
 
     if(type === "afles"){
@@ -1290,7 +1361,20 @@ function openProjectModal(type){
                 <li>Supported operational team to maintain efficient event flow</li>
             </ul>
         `;
+
+        images = ["afles1.jpg","afles2.jpg","afles3.jpg","afles4.jpg"];
     }
+
+    // Inject images
+    galleryTrack.innerHTML = "";
+    images.forEach(img => {
+        galleryTrack.innerHTML += `<img src="${img}" alt="Project Image">`;
+    });
+
+    // Duplicate for infinite scroll
+    images.forEach(img => {
+        galleryTrack.innerHTML += `<img src="${img}" alt="Project Image">`;
+    });
 
     modal.style.display = "flex";
 }
@@ -1308,7 +1392,40 @@ window.addEventListener("click", function(event){
 });
 </script>
 
-</script>
+<script>
+function showCert(type, element){
 
+    const existing = document.querySelector(".cert-inline");
+
+    if(existing){
+        const previousItem = existing.previousElementSibling;
+        existing.remove();
+
+        if(previousItem === element){
+            return; // toggle effect
+        }
+    }
+
+    let imageSrc = "";
+
+    if(type === "scholarship"){
+        imageSrc = "scholarship-certificate.jpg";
+    }
+
+    if(type === "digital"){
+        imageSrc = "digital-marketing-certificate.jpg";
+    }
+
+    const certDiv = document.createElement("div");
+    certDiv.classList.add("cert-inline");
+
+    certDiv.innerHTML = `<img src="${imageSrc}" alt="Certificate">`;
+
+    element.after(certDiv);
+
+    certDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+</script>
 </body>
 </html>
