@@ -135,7 +135,7 @@ nav ul li a:hover{
 /* EXPERIENCE VERTICAL TIMELINE */
 .timeline{
     position:relative;
-    max-width:900px;
+    max-width:1100px;
     margin:0 auto;
 }
 
@@ -681,6 +681,24 @@ footer{
     box-shadow:0 20px 50px rgba(37,99,235,0.15);
 }
 
+/* ===== PROJECT VERTICAL LAYOUT ===== */
+
+.project-container{
+    display: flex;
+    flex-direction: column;   /* vertical */
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.project-card{
+    width: 100%;
+    min-height: 150px;        /* paksa tinggi minimum */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 </style>
 </head>
 
@@ -986,7 +1004,7 @@ While continuously developing professional and managerial skills.
         <h2>Project</h2>
     </div>
 
-    <div class="cards">
+    <div class="project-container">
 
         <!-- LTP -->
         <div class="card project-card" onclick="openProjectModal('ltp')">
@@ -1007,13 +1025,30 @@ While continuously developing professional and managerial skills.
 
         <!-- AFLES -->
         <div class="card project-card" onclick="openProjectModal('afles')">
-    <span class="year">2024</span>
+    <span class="year">2023</span>
 
     <div class="logo-container">
         <img src="afles-logo.png" alt="AFLES">
         <div>
-            <h3>AFLES 2024</h3>
+            <h3>ASEAN Future Leaders Summit 2023</h3>
             <div class="institution">Logistics Division</div>
+        </div>
+    </div>
+
+    <div class="more-info">
+        <i class="fas fa-circle-info"></i> Click for more info
+    </div>
+</div>
+
+        <!-- English Event 2022 -->
+        <div class="card project-card" onclick="openProjectModal('ee')">
+    <span class="year">2022</span>
+
+    <div class="logo-container">
+        <img src="mbec-logo.png" alt="AFLES">
+        <div>
+            <h3>English Event 2022</h3>
+            <div class="institution">Competition Division</div>
         </div>
     </div>
 
@@ -1062,6 +1097,15 @@ While continuously developing professional and managerial skills.
                 <small>Kemnaker & GNIK</small>
             </div>
         </li>
+
+		<li onclick="showCert('ecobiz', this)">
+            <span class="year">Jul 2024</span>
+            <div>
+                <strong>Presenter of Ecobiz International Conference</strong><br>
+                <small>The Mercu Buana Ecobiz Energy International Conference</small>
+            </div>
+        </li>
+
 		
         <li onclick="showCert('adai', this)">
             <span class="year">Jul 2024</span>
@@ -1192,6 +1236,7 @@ While continuously developing professional and managerial skills.
         <a href="https://wa.me/6282232923136?text=" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
+
     </div>
 </section>
 
@@ -1425,6 +1470,28 @@ function openProjectModal(type){
         images = ["afles1.jpg","afles2.jpg","afles3.jpg","afles4.jpg"];
     }
 
+    if(type === "ee"){
+        body.innerHTML = `
+            <div class="modal-header">
+                <img src="ee-logo.png" alt="EE">
+                <div>
+                    <h2>English Event 2022</h2>
+                    <p>Competition Division</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Managed inventory and distribution of event equipment</li>
+                <li>Coordinated vendor communication and delivery schedule</li>
+                <li>Ensured venue readiness before and during event execution</li>
+                <li>Supported operational team to maintain efficient event flow</li>
+            </ul>
+        `;
+
+        images = ["ee1.jpg","ee2.jpg","ee3.jpg","ee4.jpg"];
+    }
+
+
     // Inject images
     galleryTrack.innerHTML = "";
     images.forEach(img => {
@@ -1504,6 +1571,10 @@ function showCert(type, element){
         imageSrc = "bicmac.jpg";
     }
 
+    if(type === "ecobiz"){
+        imageSrc = "ecobiz.jpg";
+    }
+
     const certDiv = document.createElement("div");
     certDiv.classList.add("cert-inline");
 
@@ -1517,6 +1588,5 @@ function showCert(type, element){
 </script>
 </body>
 </html>
-
 
 
