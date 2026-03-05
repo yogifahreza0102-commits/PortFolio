@@ -1031,8 +1031,40 @@ While continuously developing professional and managerial skills.
     </div>
 
     <ul class="achievement-list">
+		<li onclick="showCert('ei-certificate', this)">
+            <span class="year">Mar 2026</span>
+            <div>
+                <strong>Emotional Intelligence</strong><br>
+                <small>Kemnaker & GNIK</small>
+            </div>
+        </li>
+		
+		<li onclick="showCert('se-certificate', this)">
+            <span class="year">Feb 2026</span>
+            <div>
+                <strong>Self Efficacy</strong><br>
+                <small>Kemnaker & GNIK</small>
+            </div>
+        </li>
+		
+		<li onclick="showCert('ddt-certificate', this)">
+            <span class="year">Jan 2026</span>
+            <div>
+                <strong>Digital Disruption & Transformation</strong><br>
+                <small>Kemnaker & GNIK</small>
+            </div>
+        </li>
+		
+		<li onclick="showCert('dt-certificate', this)">
+            <span class="year">Dec 2025</span>
+            <div>
+                <strong>Design Thinking</strong><br>
+                <small>Kemnaker & GNIK</small>
+            </div>
+        </li>
+		
         <li onclick="showCert('adai', this)">
-            <span class="year">July 2024</span>
+            <span class="year">Jul 2024</span>
             <div>
                 <strong>Best Business Idea Background</strong><br>
                 <small>ADAI International Business Plan Competition</small>
@@ -1040,23 +1072,15 @@ While continuously developing professional and managerial skills.
         </li>
 
         <li onclick="showCert('asia', this)">
-            <span class="year">July 2024</span>
+            <span class="year">Jul 2024</span>
             <div>
                 <strong>Teaching Program for International Students</strong><br>
                 <small>Association of Asia Pacific Academicion (ASIA)</small>
             </div>
         </li>
 
-		<li onclick="showCert('p2a', this)">
-            <span class="year">April 2024</span>
-            <div>
-                <strong>Finalist</strong><br>
-                <small>P2A Hybrid Mobility Program</small>
-            </div>
-        </li>
-
 		<li onclick="showCert('det', this)">
-            <span class="year">February 2024</span>
+            <span class="year">Feb 2024</span>
             <div>
                 <strong>English Certification</strong><br>
                 <small>Duolingo English Test</small>
@@ -1064,34 +1088,18 @@ While continuously developing professional and managerial skills.
         </li>
 		
 		<li onclick="showCert('revou', this)">
-            <span class="year">January 2024</span>
+            <span class="year">Jan 2024</span>
             <div>
                 <strong>Digital Marketing Mini Course</strong><br>
                 <small>RevoU</small>
             </div>
         </li>
 
-		<li onclick="showCert('p2asdg', this)">
-            <span class="year">June 2023</span>
-            <div>
-                <strong>Participant</strong><br>
-                <small>Bicara Macroprudential (BicMac) 2023</small>
-            </div>
-        </li>
-
 		<li onclick="showCert('bicmac', this)">
-            <span class="year">June 2023</span>
+            <span class="year">Jun 2023</span>
             <div>
                 <strong>Top 20 Article Writing Competition</strong><br>
                 <small>Bicara Macroprudential (BicMac) 2023</small>
-            </div>
-        </li>
-
-		<li onclick="showCert('digital', this)">
-            <span class="year">2024</span>
-            <div>
-                <strong>Digital Marketing Certification</strong><br>
-                <small>Professional Certification</small>
             </div>
         </li>
     </ul>
@@ -1450,18 +1458,46 @@ function showCert(type, element){
         existing.remove();
 
         if(previousItem === element){
-            return; // toggle effect
+            return;
         }
     }
 
     let imageSrc = "";
 
-    if(type === "scholarship"){
-        imageSrc = "scholarship-certificate.jpg";
+    if(type === "ei-certificate"){
+        imageSrc = "ei-certificate.jpg";
     }
 
-    if(type === "digital"){
-        imageSrc = "digital-marketing-certificate.jpg";
+    if(type === "se-certificate"){
+        imageSrc = "se-certificate.jpg";
+    }
+
+    if(type === "ddt-certificate"){
+        imageSrc = "ddt-certificate.jpg";
+    }
+
+    if(type === "dt-certificate"){
+        imageSrc = "dt-certificate.jpg";
+    }
+
+    if(type === "adai"){
+        imageSrc = "adai.jpg";
+    }
+
+    if(type === "asia"){
+        imageSrc = "asia.jpg";
+    }
+
+    if(type === "det"){
+        imageSrc = "det.jpg";
+    }
+
+    if(type === "revou"){
+        imageSrc = "revou.jpg";
+    }
+
+    if(type === "bicmac"){
+        imageSrc = "bicmac.jpg";
     }
 
     const certDiv = document.createElement("div");
@@ -1477,4 +1513,5 @@ function showCert(type, element){
 </script>
 </body>
 </html>
+
 
