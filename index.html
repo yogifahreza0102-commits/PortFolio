@@ -23,7 +23,6 @@ body{
     overflow-x:hidden;
 }
 
-/* FLOATING BACKGROUND */
 body::before, body::after{
     content:"";
     position:fixed;
@@ -55,7 +54,6 @@ body::after{
     to{ transform:translateY(40px);}
 }
 
-/* NAVBAR */
 nav{
     position:fixed;
     width:100%;
@@ -90,7 +88,6 @@ nav ul li a:hover{
     color:#2563eb;
 }
 
-/* HERO */
 .hero{
     height:100vh;
     display:flex;
@@ -132,7 +129,6 @@ nav ul li a:hover{
     animation:fadeIn 1.5s ease forwards;
 }
 
-/* EXPERIENCE VERTICAL TIMELINE */
 .timeline{
     position:relative;
     max-width:1100px;
@@ -188,7 +184,6 @@ nav ul li a:hover{
     padding:30px;
 }
 
-/* MOBILE RESPONSIVE */
 @media(max-width:768px){
     .timeline::before{
         left:8px;
@@ -207,7 +202,6 @@ nav ul li a:hover{
     }
 }
 
-/* WAVE DIVIDER */
 .wave{
     position:absolute;
     bottom:0;
@@ -217,8 +211,6 @@ nav ul li a:hover{
 html{
     scroll-behavior:smooth;
 }
-
-/* SECTION */
 
 .section-title{
     text-align:center;
@@ -236,7 +228,6 @@ section{
     animation:fadeIn 1.5s ease;
 }
 
-/* LOGO */
 .logo-container{
     display:flex;
     align-items:center;
@@ -253,7 +244,6 @@ section{
     box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* CARDS UNIVERSAL */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -310,7 +300,6 @@ section{
     line-height:1.6;
 }
 
-/* EXPERIENCE ACCORDION */
 .experience-card{
     cursor:pointer;
     overflow:hidden;
@@ -334,12 +323,11 @@ section{
     gap:4px;
 }
 
-/* SKILLS */
 .skills{
     display:flex;
     flex-wrap:wrap;
     gap:15px;
-    justify-content:center;
+    justify-content:flex;
 }
 
 .skill{
@@ -355,7 +343,6 @@ section{
     transform:scale(1.05);
 }
 
-/* CONTACT */
 .contact-icons{
     display:flex;
     justify-content:center;
@@ -382,17 +369,16 @@ section{
     box-shadow:0 10px 25px rgba(37,99,235,0.3);
 }
 
-/* Optional: beda warna tiap platform */
 .contact-icons a:nth-child(1){
-    background:linear-gradient(135deg,#2563eb,#3b82f6); /* email */
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
 }
 
 .contact-icons a:nth-child(2){
-    background:#0A66C2; /* linkedin */
+    background:#0A66C2;
 }
 
 .contact-icons a:nth-child(3){
-    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); /* instagram */
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
 }
 
 footer{
@@ -430,7 +416,6 @@ footer{
     color:#475569;
 }
 
-/* Responsive */
 @media(max-width:768px){
     .about-container{
         flex-direction:column;
@@ -443,7 +428,6 @@ footer{
     }
 }
 
-/* Paksa isi experience tetap rata kiri */
 .experience-card,
 .experience-card ul,
 .experience-card li,
@@ -452,7 +436,6 @@ footer{
     text-align: left !important;
 }
 
-/* EDUCATION MODAL */
 .modal{
     position:fixed;
     top:0;
@@ -475,9 +458,13 @@ footer{
     height:85vh;
     border-radius:25px;
     padding:40px;
-    overflow-y:auto;
+    overflow:hidden;
     position:relative;
     animation:fadeIn 0.4s ease;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
 .close-btn{
@@ -489,37 +476,9 @@ footer{
     color:#1e3a8a;
 }
 
-/* Modal Gallery */
-.modal-gallery-wrapper{
-    overflow:hidden;
-    margin-top:30px;
-}
-
-.modal-gallery-track{
-    display:flex;
-    gap:25px;
-    width:max-content;
-    animation:modalScroll 25s linear infinite;
-}
-
-.modal-gallery-track img{
-    width:250px;
-    height:180px;
-    object-fit:cover;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(37,99,235,0.15);
-}
-
-@keyframes modalScroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-}
-
 .education-card{
     cursor:pointer;
 }
-
-/* ===== CLICK FOR MORE INFO ===== */
 
 .education-card,
 .experience-card{
@@ -549,8 +508,6 @@ footer{
     font-size:0.8rem;
 }
 
-/* ===== MODAL HEADER WITH LOGO ===== */
-
 .modal-header{
     display:flex;
     align-items:center;
@@ -579,22 +536,17 @@ footer{
     font-weight:500;
 }
 
-/* Hide "Click for more info" when card is expanded */
 .experience-card.active .more-info,
-.education-card.active .more-info{
-    opacity: 0;
-    visibility: hidden;
 }
 
-/* Hard Skills Logos – make them bigger */
-/* Align logos to left instead of center */
-.skills-logos.left-align {
-    justify-content: flex-start;
+.skills-logos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
 }
 
-/* Style for image logos */
 .skill-logo-img {
-    width: 80px;       /* adjust as needed */
+    width: 80px;
     height: 80px;
     border-radius: 15px;
     margin: 10px 15px 10px 0;
@@ -608,7 +560,6 @@ footer{
     box-shadow: 0 12px 35px rgba(37,99,235,0.25);
 }
 
-/* EXPERIENCE PHOTO GALLERY */
 .experience-gallery{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -630,7 +581,6 @@ footer{
     box-shadow:0 12px 30px rgba(37,99,235,0.25);
 }
 
-/* Mobile */
 @media(max-width:768px){
     .experience-gallery{
         grid-template-columns:1fr;
@@ -641,7 +591,6 @@ footer{
     }
 }
 
-/* Achievement List Style */
 .achievement-list {
     list-style: none;
     padding: 0;
@@ -681,11 +630,9 @@ footer{
     box-shadow:0 20px 50px rgba(37,99,235,0.15);
 }
 
-/* ===== PROJECT VERTICAL LAYOUT ===== */
-
 .project-container{
     display: flex;
-    flex-direction: column;   /* vertical */
+    flex-direction: column;
     gap: 30px;
     max-width: 900px;
     margin: auto;
@@ -693,10 +640,69 @@ footer{
 
 .project-card{
     width: 100%;
-    min-height: 150px;        /* paksa tinggi minimum */
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.modal-gallery{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:30px;
+    position:relative;
+}
+
+.modal-gallery img{
+    width:100%;
+    max-width:480px;
+    height:240px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(37,99,235,0.18);
+}
+
+.gallery-btn{
+    position:absolute;
+    background:rgba(37,99,235,0.8);
+    border:none;
+    color:white;
+    font-size:18px;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.gallery-btn:hover{
+    transform:scale(1.1);
+    background:#2563eb;
+}
+
+.gallery-btn.left{
+    left:130px;
+}
+
+.gallery-btn.right{
+    right:130px;
+}
+
+@media(max-width:768px){
+
+    .gallery-btn.left{
+        left:10px;
+    }
+
+    .gallery-btn.right{
+        right:10px;
+    }
+
+    .modal-gallery img{
+        height:250px;
+    }
+
 }
 
 </style>
@@ -734,7 +740,7 @@ footer{
     <div class="section-title"><h2>About Me</h2></div>
 
     <div class="about-container">
-        <img src="assets/img/your-photo.jpg" alt="Yogi Photo" class="about-photo">
+        <img src="your-photo.jpg" alt="Yogi Photo" class="about-photo">
 
         <div class="about-text">
             <p>
@@ -793,7 +799,6 @@ While continuously developing professional and managerial skills.
             <div class="more-info">
                 <i class="fas fa-circle-info"></i> Click for more info
             </div>
-
     </div>
 </section>
 
@@ -1030,7 +1035,7 @@ While continuously developing professional and managerial skills.
     <div class="logo-container">
         <img src="afles-logo.png" alt="AFLES">
         <div>
-            <h3>ASEAN Future Leaders Summit (AFLES) 2023</h3>
+            <h3>ASEAN Future Leaders Summit 2023</h3>
             <div class="institution">Logistics Division</div>
         </div>
     </div>
@@ -1177,7 +1182,7 @@ While continuously developing professional and managerial skills.
 <!-- MICROSOFT OFFICE -->
 <div class="tool-group">
     <h4>Microsoft Office</h4>
-    <div class="skills skills-logos left-align">
+    <div class="skills skills-logos">
         <img src="ms-office.png" alt="Microsoft Office" class="skill-logo-img">
         <img src="ms-word.png" alt="MS Word" class="skill-logo-img">
         <img src="ms-excel.png" alt="MS Excel" class="skill-logo-img">
@@ -1188,7 +1193,7 @@ While continuously developing professional and managerial skills.
 <!-- GOOGLE WORKSPACE -->
 <div class="tool-group">
     <h4>Google Workspace</h4>
-    <div class="skills skills-logos left-align">
+    <div class="skills skills-logos">
         <img src="google-docs.png" alt="Google Docs" class="skill-logo-img">
         <img src="google-sheets.png" alt="Google Sheets" class="skill-logo-img">
         <img src="google-slides.png" alt="Google Slides" class="skill-logo-img">
@@ -1199,7 +1204,7 @@ While continuously developing professional and managerial skills.
 <!-- PROJECT / COLLABORATION TOOLS -->
 <div class="tool-group">
     <h4>Project & Collaboration</h4>
-    <div class="skills skills-logos left-align">
+    <div class="skills skills-logos">
         <img src="notion.png" alt="Notion" class="skill-logo-img">
         <img src="github.png" alt="GitHub" class="skill-logo-img">
     </div>
@@ -1208,7 +1213,7 @@ While continuously developing professional and managerial skills.
 <!-- DESIGN / VIDEO -->
 <div class="tool-group">
     <h4>Design & Video</h4>
-    <div class="skills skills-logos left-align">
+    <div class="skills skills-logos">
         <img src="canva.png" alt="Canva" class="skill-logo-img">
         <img src="adobe-premiere.png" alt="Adobe Premiere" class="skill-logo-img">
         <img src="figma.png" alt="Figma" class="skill-logo-img">
@@ -1251,22 +1256,19 @@ While continuously developing professional and managerial skills.
 
         <div id="modalBody"></div>
 
-        <!-- AUTO SCROLL GALLERY -->
-        <div class="modal-gallery-wrapper">
-    		<div class="modal-gallery-track" id="educationGalleryTrack">
+        <div class="modal-gallery">
 
-                <img src="gallery1.jpg">
-                <img src="gallery2.jpg">
-                <img src="gallery3.jpg">
-                <img src="gallery4.jpg">
+           <button class="gallery-btn left" onclick="prevImage()">
+<i class="fas fa-chevron-left"></i>
+</button>
 
-                <!-- duplicate for looping -->
-                <img src="gallery1.jpg">
-                <img src="gallery2.jpg">
-                <img src="gallery3.jpg">
-                <img src="gallery4.jpg">
+<img id="modalImage" src="" alt="Gallery Image">
 
-            </div>
+<button class="gallery-btn right" onclick="nextImage()">
+<i class="fas fa-chevron-right"></i>
+</button>
+           </div>
+
         </div>
 
     </div>
@@ -1279,21 +1281,18 @@ While continuously developing professional and managerial skills.
 
         <div id="projectModalBody"></div>
 
-        <div class="modal-gallery-wrapper">
-            <div class="modal-gallery-track">
+        <div class="modal-gallery">
 
-                <img src="project1.jpg">
-                <img src="project2.jpg">
-                <img src="project3.jpg">
-                <img src="project4.jpg">
+            <button class="gallery-btn left" onclick="prevImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
 
-                <!-- duplicate for looping -->
-                <img src="project1.jpg">
-                <img src="project2.jpg">
-                <img src="project3.jpg">
-                <img src="project4.jpg">
+            <img id="projectModalImage" src="" alt="Project Image">
 
-            </div>
+            <button class="gallery-btn right" onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
         </div>
 
     </div>
@@ -1332,7 +1331,6 @@ document.querySelectorAll(".experience-card").forEach(card => {
 function openModal(type){
     const modal = document.getElementById("educationModal");
     const body = document.getElementById("modalBody");
-    const galleryTrack = document.getElementById("educationGalleryTrack");
 
     let images = [];
 
@@ -1392,19 +1390,12 @@ function openModal(type){
         ];
     }
 
-    // Inject images dynamically
-    galleryTrack.innerHTML = "";
+// Inject images dynamically
+galleryImages = images;
+currentImageIndex = 0;
+showImage();
 
-    images.forEach(img => {
-        galleryTrack.innerHTML += `<img src="${img}" alt="Gallery Image">`;
-    });
-
-    // Duplicate for infinite scroll
-    images.forEach(img => {
-        galleryTrack.innerHTML += `<img src="${img}" alt="Gallery Image">`;
-    });
-
-    modal.style.display = "flex";
+modal.style.display = "flex";
 }
 
 function closeModal(){
@@ -1421,10 +1412,11 @@ window.onclick = function(event){
 </script>
 
 <script>
+
 function openProjectModal(type){
+
     const modal = document.getElementById("projectModal");
     const body = document.getElementById("projectModalBody");
-    const galleryTrack = modal.querySelector(".modal-gallery-track");
 
     let images = [];
 
@@ -1446,7 +1438,12 @@ function openProjectModal(type){
             </ul>
         `;
 
-        images = ["ltp1.jpg","ltp2.jpg","ltp3.jpg","ltp4.jpg"];
+        images = [
+            "ltp1.jpg",
+            "ltp2.jpg",
+            "ltp3.jpg",
+            "ltp4.jpg"
+        ];
     }
 
     if(type === "afles"){
@@ -1454,7 +1451,7 @@ function openProjectModal(type){
             <div class="modal-header">
                 <img src="afles-logo.png" alt="AFLES">
                 <div>
-                    <h2>ASEAN Future Leaders Summit (AFLES) 2023</h2>
+                    <h2>ASEAN Future Leaders Summit 2023</h2>
                     <p>Logistics Division</p>
                 </div>
             </div>
@@ -1467,13 +1464,18 @@ function openProjectModal(type){
             </ul>
         `;
 
-        images = ["afles1.jpg","afles2.jpg","afles3.jpg","afles4.jpg"];
+        images = [
+            "afles1.jpg",
+            "afles2.jpg",
+            "afles3.jpg",
+            "afles4.jpg"
+        ];
     }
 
     if(type === "ee"){
         body.innerHTML = `
             <div class="modal-header">
-                <img src="ee-logo.png" alt="EE">
+                <img src="mbec-logo.png" alt="English Event">
                 <div>
                     <h2>English Event 2022</h2>
                     <p>Competition Division</p>
@@ -1481,27 +1483,24 @@ function openProjectModal(type){
             </div>
 
             <ul>
-                <li>Managed inventory and distribution of event equipment</li>
-                <li>Coordinated vendor communication and delivery schedule</li>
-                <li>Ensured venue readiness before and during event execution</li>
-                <li>Supported operational team to maintain efficient event flow</li>
+                <li>Organized competition logistics and coordination</li>
+                <li>Managed participant registration and event materials</li>
+                <li>Supported judges and event operations</li>
+                <li>Ensured competition sessions ran smoothly</li>
             </ul>
         `;
 
-        images = ["ee1.jpg","ee2.jpg","ee3.jpg","ee4.jpg"];
+        images = [
+            "ee1.jpg",
+            "ee2.jpg",
+            "ee3.jpg",
+            "ee4.jpg"
+        ];
     }
 
-
-    // Inject images
-    galleryTrack.innerHTML = "";
-    images.forEach(img => {
-        galleryTrack.innerHTML += `<img src="${img}" alt="Project Image">`;
-    });
-
-    // Duplicate for infinite scroll
-    images.forEach(img => {
-        galleryTrack.innerHTML += `<img src="${img}" alt="Project Image">`;
-    });
+    projectGalleryImages = images;
+    projectImageIndex = 0;
+    showProjectImage();
 
     modal.style.display = "flex";
 }
@@ -1510,12 +1509,19 @@ function closeProjectModal(){
     document.getElementById("projectModal").style.display = "none";
 }
 
-// Close project modal when clicking outside
 window.addEventListener("click", function(event){
-    const modal = document.getElementById("projectModal");
-    if(event.target === modal){
-        modal.style.display = "none";
+
+    const eduModal = document.getElementById("educationModal");
+    const projModal = document.getElementById("projectModal");
+
+    if(event.target === eduModal){
+        eduModal.style.display = "none";
     }
+
+    if(event.target === projModal){
+        projModal.style.display = "none";
+    }
+
 });
 </script>
 
@@ -1585,9 +1591,84 @@ function showCert(type, element){
     certDiv.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
+let galleryImages = [];
+let currentImageIndex = 0;
+
+function showImage(){
+    const img = document.getElementById("modalImage");
+
+    img.style.opacity = 0;
+    img.style.transform = "scale(0.96)";
+
+    setTimeout(() => {
+        img.src = galleryImages[currentImageIndex];
+
+        img.style.opacity = 1;
+        img.style.transform = "scale(1)";
+    }, 150);
+}
+
+function nextImage(){
+    currentImageIndex++;
+
+    if(currentImageIndex >= galleryImages.length){
+        currentImageIndex = 0;
+    }
+
+    showImage();
+}
+
+function prevImage(){
+    currentImageIndex--;
+
+    if(currentImageIndex < 0){
+        currentImageIndex = galleryImages.length - 1;
+    }
+
+    showImage();
+}
+
+let projectGalleryImages = [];
+let projectImageIndex = 0;
+
+function showProjectImage(){
+    const img = document.getElementById("projectModalImage");
+
+    img.style.opacity = 0;
+    img.style.transform = "scale(0.96)";
+
+    setTimeout(() => {
+        img.src = projectGalleryImages[projectImageIndex];
+
+        img.style.opacity = 1;
+        img.style.transform = "scale(1)";
+    }, 150);
+}
+
+function nextImage(){
+
+    projectImageIndex++;
+
+    if(projectImageIndex >= projectGalleryImages.length){
+        projectImageIndex = 0;
+    }
+
+    showProjectImage();
+}
+
+function prevImage(){
+
+    projectImageIndex--;
+
+    if(projectImageIndex < 0){
+        projectImageIndex = projectGalleryImages.length - 1;
+    }
+
+    showProjectImage();
+}
+
 </script>
 </body>
 </html>
-
 
 
