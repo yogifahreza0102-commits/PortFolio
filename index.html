@@ -1253,20 +1253,16 @@ While continuously developing professional and managerial skills.
 <div id="educationModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-
         <div id="modalBody"></div>
-
         <div class="modal-gallery">
+           <button class="gallery-btn left" onclick="prevEduImage()">
+			<i class="fas fa-chevron-left"></i>
+			</button>
+		<img id="modalImage" src="" alt="Gallery Image">
 
-           <button class="gallery-btn left" onclick="prevImage()">
-<i class="fas fa-chevron-left"></i>
-</button>
-
-<img id="modalImage" src="" alt="Gallery Image">
-
-<button class="gallery-btn right" onclick="nextImage()">
-<i class="fas fa-chevron-right"></i>
-</button>
+			<button class="gallery-btn right" onclick="nextEduImage()">
+			<i class="fas fa-chevron-right"></i>
+			</button>
            </div>
 
         </div>
@@ -1283,13 +1279,13 @@ While continuously developing professional and managerial skills.
 
         <div class="modal-gallery">
 
-            <button class="gallery-btn left" onclick="prevImage()">
+            <button class="gallery-btn left" onclick="prevProjectImage()">
                 <i class="fas fa-chevron-left"></i>
             </button>
 
             <img id="projectModalImage" src="" alt="Project Image">
 
-            <button class="gallery-btn right" onclick="nextImage()">
+            <button class="gallery-btn right" onclick="nextProjectImage()">
                 <i class="fas fa-chevron-right"></i>
             </button>
 
@@ -1608,7 +1604,7 @@ function showImage(){
     }, 150);
 }
 
-function nextImage(){
+function nextEduImage(){
     currentImageIndex++;
 
     if(currentImageIndex >= galleryImages.length){
@@ -1618,7 +1614,7 @@ function nextImage(){
     showImage();
 }
 
-function prevImage(){
+function prevEduImage(){
     currentImageIndex--;
 
     if(currentImageIndex < 0){
@@ -1645,7 +1641,7 @@ function showProjectImage(){
     }, 150);
 }
 
-function nextImage(){
+function nextProjectImage(){
 
     projectImageIndex++;
 
@@ -1656,7 +1652,7 @@ function nextImage(){
     showProjectImage();
 }
 
-function prevImage(){
+function prevProjectImage(){
 
     projectImageIndex--;
 
@@ -1670,5 +1666,6 @@ function prevImage(){
 </script>
 </body>
 </html>
+
 
 
