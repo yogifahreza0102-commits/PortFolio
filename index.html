@@ -656,11 +656,10 @@ footer{
 }
 
 .modal-gallery img{
-    max-width:520px;
-    max-height:420px;
-    width:auto;
-    height:auto;
-    object-fit:contain;
+    width:420px;
+    height:420px;
+    aspect-ratio:1 / 1;
+    object-fit:cover;
     border-radius:18px;
     box-shadow:0 15px 40px rgba(37,99,235,0.18);
 }
@@ -702,8 +701,10 @@ footer{
     }
 
     .modal-gallery img{
-    	max-height:60vh;
-    	max-width:90%;
+    	width:85vw;
+    	height:85vw;
+    	aspect-ratio:1/1;
+    	object-fit:cover;
 	}
 
 }
@@ -1669,6 +1670,7 @@ function prevProjectImage(){
 </script>
 </body>
 </html>
+
 
 
 
