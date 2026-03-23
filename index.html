@@ -461,10 +461,10 @@ footer{
     overflow:hidden;
     position:relative;
     animation:fadeIn 0.4s ease;
-
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:flex-start;
+    gap:20px;
 }
 
 .close-btn{
@@ -536,7 +536,12 @@ footer{
     font-weight:500;
 }
 
-.experience-card.active .more-info,
+.more-info{
+    transition:opacity 0.3s ease;
+}
+
+.experience-card.active .more-info{
+    opacity:0;
 }
 
 .skills-logos{
@@ -651,14 +656,14 @@ footer{
     align-items:center;
     justify-content:center;
     margin-top:30px;
-    position:relative;
-    min-height:420px;
+    margin-bottom:30px;
 }
 
 .modal-gallery img{
-    width:420px;
-    height:420px;
-    aspect-ratio:1 / 1;
+    width:100%;
+    max-width:450px;
+    height:auto;
+    aspect-ratio:16 / 9;
     object-fit:cover;
     border-radius:18px;
     box-shadow:0 15px 40px rgba(37,99,235,0.18);
@@ -960,7 +965,6 @@ While continuously developing professional and managerial skills.
     		<img src="gdsc1.jpg" alt="GDSC Experience 1">
     		<img src="gdsc2.jpg" alt="GDSC Experience 2">
     		<img src="gdsc3.jpg" alt="GDSC Experience 3">
-    		<img src="gdsc4.jpg" alt="GDSC Experience 4">
 		</div>
             </div>
         </div>
@@ -1670,8 +1674,3 @@ function prevProjectImage(){
 </script>
 </body>
 </html>
-
-
-
-
-
