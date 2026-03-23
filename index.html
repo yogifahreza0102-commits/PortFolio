@@ -1671,6 +1671,58 @@ function prevProjectImage(){
     showProjectImage();
 }
 
+let startX = 0;
+let endX = 0;
+
+const modalImg = document.getElementById("modalImage");
+
+modalImg.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+modalImg.addEventListener("touchend", e => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe(){
+    const threshold = 50; // minimal swipe distance
+
+    if(startX - endX > threshold){
+        nextEduImage(); // swipe kiri → next
+    }
+
+    if(endX - startX > threshold){
+        prevEduImage(); // swipe kanan → prev
+    }
+}
+
+let startXProject = 0;
+let endXProject = 0;
+
+const projectImg = document.getElementById("projectModalImage");
+
+projectImg.addEventListener("touchstart", e => {
+    startXProject = e.touches[0].clientX;
+});
+
+projectImg.addEventListener("touchend", e => {
+    endXProject = e.changedTouches[0].clientX;
+    handleProjectSwipe();
+});
+
+function handleProjectSwipe(){
+    const threshold = 50;
+
+    if(startXProject - endXProject > threshold){
+        nextProjectImage();
+    }
+
+    if(endXProject - startXProject > threshold){
+        prevProjectImage();
+    }
+}
+
 </script>
 </body>
 </html>
